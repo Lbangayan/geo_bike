@@ -1,0 +1,35 @@
+:root {
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+}
+
+circle,
+.legend > div {
+    --color: color-mix(
+        in oklch,
+        var(--color-departures) calc(100% * var(--departure-ratio)),
+        var(--color-arrivals)
+    );
+    fill: var(--color);
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-block: 1rem;
+}
+
+.legend > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend > div::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--color);
+    border-radius: 50%;
+}
